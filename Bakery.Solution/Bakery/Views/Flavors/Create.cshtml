@@ -4,12 +4,12 @@
 
 @model Bakery.Models.Flavor
 
-<h4>Add a new task</h4>
+<h4>Add a new Flavor</h4>
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name)
 
-  <input type="submit" value="Add new flavor of task" />
+  <input type="submit" value="Add a new flavor " />
 }
 <p>@Html.ActionLink("Show all flavors", "Index")</p>
