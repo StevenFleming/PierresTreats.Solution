@@ -3,7 +3,14 @@
 }
 
 @model Bakery.Models.Treat
+<p>Add a new Treat</p>
 
+@using(Html.BeginForm())
+{
+  @Html.LabelFor(model => Model.Description)
+  @Html.TextBoxFor(model => Model.Description)
+}
+<input type= "submit" value ="Add a New Treat" >
 @* The line above is a model directive - tells our view what type of data will be passed into the view from the controller route *@
 
 <p>@Html.ActionLink("Show all treats", "Index")</p>
