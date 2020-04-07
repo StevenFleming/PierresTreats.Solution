@@ -6,6 +6,12 @@
 @model List<Bakery.Models.Treat>;
 
 <h1>Treats</h1>
+<ul>
+  @foreach(Treat treat in Model)
+  {
+    <li>@Html.ActionLink($"{treat.Description}", "Details", new { id = treat.TreatId })</li>
+  }
+</ul>
 
 
 <p>@Html.ActionLink("Add new treat", "Create")</p>

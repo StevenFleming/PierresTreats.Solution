@@ -27,5 +27,20 @@ namespace Bakery.Controllers
       return View();
     }
 
+    [HttpPost]
+    public ActionResult Create(Treat treat)
+    {
+      _db.Treats.Add(treat);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult Details(int id)
+    {
+      Treat thisTreat = _db.Treats
+        .Include(treat => treat.)
+        .FirstOrDefault(treat => treat.TreatId == id);
+      return View(thisTreat);
+    }
   }
 }

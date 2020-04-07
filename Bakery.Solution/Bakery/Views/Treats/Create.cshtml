@@ -3,16 +3,15 @@
 }
 
 @model Bakery.Models.Treat
-<p>Add a new Treat</p>
 
-@using(Html.BeginForm())
+<h4>Add a new Treat</h4>
+@using (Html.BeginForm())
 {
-  @Html.LabelFor(model => Model.Description)
-  @Html.TextBoxFor(model => Model.Description)
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
+
+  <input type="submit" value="Add a new Treat " />
 }
-<input type= "submit" value ="Add a New Treat" >
-@* The line above is a model directive - tells our view what type of data will be passed into the view from the controller route *@
+<p>@Html.ActionLink("Show all Treats", "Index")</p>
 
-<p>@Html.ActionLink("Show all treats", "Index")</p>
 
-@* By default, BeginForm() sends an HTTP POST request to the current URL. This form will send a POST request to the Create() route. In HTML, it would look like this: <form action="/Treats/Create" method="post">*@
