@@ -18,8 +18,7 @@ namespace Bakery.Controllers
 
     public ActionResult Index()
     {
-      List<Treat> model = _db.Treats.ToList();
-      return View(model);
+      return View(_db.Treats.ToList());
     }
 
     public ActionResult Create()
@@ -38,7 +37,8 @@ namespace Bakery.Controllers
     public ActionResult Details(int id)
     {
       Treat thisTreat = _db.Treats
-        .Include(treat => treat.)
+        .Include(treat => treat.Flavors)
+        .ThenInclude(join => join.Flavor)
         .FirstOrDefault(treat => treat.TreatId == id);
       return View(thisTreat);
     }

@@ -34,5 +34,15 @@ namespace Bakery.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+
+    public ActionResult Details(int id)
+    {
+      Flavor thisFlavor = _db.Flavors
+        .Include(Flavor => Flavor.Treats)
+        .ThenInclude(join => join.Flavor)
+        .FirstOrDefault(Flavor => Flavor.FlavorId == id);
+      return View(thisFlavor);
+    }
   }
 }
