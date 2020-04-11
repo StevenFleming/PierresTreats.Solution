@@ -5,5 +5,13 @@
 @model Bakery.Models.Flavor
 
 <h2>Edit</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.FlavorId)
 
-<p>@Html.ActionLink("Cancel", "Index")</p>
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+    
+    <input class="btn btn-default" type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>
