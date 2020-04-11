@@ -5,5 +5,13 @@
 @model Bakery.Models.Treat
 
 <h2>Edit</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.TreatId)
 
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description)
+    
+    <input class="btn btn-default" type="submit" value="Save" />
+}
 <p>@Html.ActionLink("Back to list", "Index")</p>

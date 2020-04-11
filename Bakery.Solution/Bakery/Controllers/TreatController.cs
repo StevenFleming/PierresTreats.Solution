@@ -20,7 +20,7 @@ namespace Bakery.Controllers
     {
       return View(_db.Treats.ToList());
     }
-
+    // Create
     public ActionResult Create()
     {
       return View();
@@ -33,7 +33,7 @@ namespace Bakery.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
+    // Details
     public ActionResult Details(int id)
     {
       Treat thisTreat = _db.Treats
@@ -41,6 +41,22 @@ namespace Bakery.Controllers
         .ThenInclude(join => join.Flavor)
         .FirstOrDefault(treat => treat.TreatId == id);
       return View(thisTreat);
+    }
+
+    // Edits
+    public ActionResult Edit(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(entries => entries.TreatId == id);
+      ViewBag.IssueId = new SelectList(_db.Flavors, "FlavorId", "Name");
+      return View(thisTreat);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Treat treat)
+    {
+      _db.Entry(treat).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 }
