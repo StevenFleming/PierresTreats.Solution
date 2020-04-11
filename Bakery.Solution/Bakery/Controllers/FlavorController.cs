@@ -34,8 +34,6 @@ namespace Bakery.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
-
     public ActionResult Details(int id)
     {
       Flavor thisFlavor = _db.Flavors
