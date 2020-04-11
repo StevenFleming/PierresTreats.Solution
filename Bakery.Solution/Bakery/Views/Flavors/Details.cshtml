@@ -4,7 +4,9 @@
 
 @using Bakery.Models;
 @model Bakery.Models.Flavor;
-
+<ul>
+    @Html.DisplayFor(model => model.Name)
+</ul>
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</p>
