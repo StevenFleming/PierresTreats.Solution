@@ -30,12 +30,17 @@ namespace Bakery.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Flavor flavor)
+    public ActionResult Create(Flavor flavor, int TreatId)
     {
       _db.Flavors.Add(flavor);
+      if (TreatId != 0)
+      {
+        _db.FlavorTreats.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId });
+      }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
     public ActionResult Details(int id)
     {
       Flavor thisFlavor = _db.Flavors
@@ -48,7 +53,7 @@ namespace Bakery.Controllers
     public ActionResult Edit(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(entries => entries.FlavorId == id);
-      // ViewBag.IssueId = new SelectList(_db.Treats "TreatId", "Description");
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Description");
       return View(thisFlavor);
     }
 

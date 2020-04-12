@@ -11,6 +11,9 @@
 
     @Html.LabelFor(model => model.Name)
     @Html.EditorFor(model => model.Name)
+
+      @Html.LabelFor(model => model.Treats)
+      @Html.DropDownList("TreatId")
     
     <input class="btn btn-default" type="submit" value="Save" />
 }
