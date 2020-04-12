@@ -8,6 +8,8 @@ namespace Bakery.Models
     {
       this.Flavors = new HashSet<FlavorTreat>();
     }
+
+    public int FlavorId { get; set; }
     public int TreatId { get; set; }
     public string Description { get; set; }
     public ICollection<FlavorTreat> Flavors { get; }

@@ -9,7 +9,8 @@
 {
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name)
-
-  <input type="submit" value="Add a new flavor " />
+  @Html.LabelFor(model => model.Treats)
+  @Html.DropDownList("TreatId")
+  <input type="submit" value="Add a new Treat " />
 }
 <p>@Html.ActionLink("Show all flavors", "Index")</p>

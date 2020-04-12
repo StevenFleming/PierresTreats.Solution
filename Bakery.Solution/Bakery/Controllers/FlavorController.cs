@@ -3,7 +3,8 @@ using Bakery.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using System;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 
 namespace Bakery.Controllers
 {
@@ -24,6 +25,7 @@ namespace Bakery.Controllers
     }
     public ActionResult Create()
     {
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Description");
       return View();
     }
 
