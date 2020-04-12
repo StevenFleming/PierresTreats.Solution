@@ -4,7 +4,7 @@
 
 @model Bakery.Models.Flavor
 
-<h2>Treat Details</h2>
+<h2>Flavor Details</h2>
 <ul>
     @Html.DisplayFor(model => model.Name)
 </ul>
@@ -15,11 +15,11 @@
 }
 else
 {
-  <h4>Flavor the item belongs to:</h4>
+  <h4>The following Treats come in @Model.Name</h4>
   <ul>
   @foreach(var join in Model.Treats)
   {
-    <li>@join.Flavor.Name</li>
+    <li>@join.Treat.Description</li>
   }
   </ul>
 }

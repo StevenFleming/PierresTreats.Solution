@@ -11,11 +11,11 @@
 
 @if(@Model.Flavors.Count == 0)
 {
-  <p>This item does not have any Flavor</p>
+  <p>This Treat does not have any Flavor</p>
 }
 else
 {
-  <h4>Flavor the item belongs to:</h4>
+  <h4>@Model.Description comes in the following flavors:</h4>
   <ul>
   @foreach(var join in Model.Flavors)
   {

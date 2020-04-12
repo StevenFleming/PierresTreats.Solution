@@ -28,12 +28,17 @@ namespace Bakery.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Treat treat)
+    public ActionResult Create(Treat treat, int FlavorId)
     {
       _db.Treats.Add(treat);
+      if (FlavorId != 0)
+      {
+        _db.FlavorTreats.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
+      }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
     // Details
     public ActionResult Details(int id)
     {
