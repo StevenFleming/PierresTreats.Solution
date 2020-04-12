@@ -1,10 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
 using Bakery.Models;
+//new code
+using Microsoft.AspNetCore.Identity;
 
 namespace Bakery
 {
@@ -23,14 +25,34 @@ namespace Bakery
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddMvc();
+
       services.AddEntityFrameworkMySql()
         .AddDbContext<BakeryContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+
+      //new code
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<BakeryContext>()
+                .AddDefaultTokenProviders();
+      services.Configure<IdentityOptions>(options =>
+    {
+      options.Password.RequireDigit = false;
+      options.Password.RequiredLength = 0;
+      options.Password.RequireLowercase = false;
+      options.Password.RequireNonAlphanumeric = false;
+      options.Password.RequireUppercase = false;
+      options.Password.RequiredUniqueChars = 0;
+    });
     }
 
     public void Configure(IApplicationBuilder app)
     {
+      app.UseStaticFiles();
+
       app.UseDeveloperExceptionPage();
+
+      //new code
+      app.UseAuthentication();
 
       app.UseMvc(routes =>
       {
@@ -45,5 +67,4 @@ namespace Bakery
       });
     }
   }
-
 }

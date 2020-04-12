@@ -58,8 +58,12 @@ namespace Bakery.Controllers
     }
 
     [HttpPost]
-    public ActionResult Edit(Treat treat)
+    public ActionResult Edit(Treat treat, int FlavorId)
     {
+      if (FlavorId != 0)
+      {
+        _db.FlavorTreats.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
+      }
       _db.Entry(treat).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");

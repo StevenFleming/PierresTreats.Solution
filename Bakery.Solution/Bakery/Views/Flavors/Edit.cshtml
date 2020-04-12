@@ -9,7 +9,7 @@
 {
     @Html.HiddenFor(model => model.FlavorId)
 
-    @Html.LabelFor(model => model.Name)
+    @Html.Label("Add a new Flavor For @Model.Name")
     @Html.EditorFor(model => model.Name)
 
       @Html.LabelFor(model => model.Treats)
