@@ -2,7 +2,7 @@
 
 namespace Bakery.Migrations
 {
-    public partial class Secondary : Migration
+    public partial class sixth : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
