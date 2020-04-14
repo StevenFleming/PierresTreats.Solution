@@ -6,14 +6,14 @@
 
 ## Description
 
-_Tracks inventory of treats and the treats respective flavors for a specific shop owner._
+_Tracks inventory of treats and the treats respective flavors for a specific Bakery owner._
 
 ## Setup/Installation Requirements
 
 - _Download .NET from here: https://dotnet.microsoft.com/download/dotnet-core/current_
 - _Download .NET script in the Terminal with this command { dotnet tool install -g dotnet-script }_
 - _Download MySQL from here: https://dev.mysql.com/downloads/_
-- _Git clone Or download the zip file from gihub { https://github.com/stevenfleming/PierresTreats.Solution }_
+- _Git clone Or download the zip file from github { https://github.com/StevenFleming/Pierres-Treats }_
 - _In the Terminal run this command { dotnet ef migrations add Initial }_
 - _In the Terminal run this command { dotnet ef database update }_
 - _In the Terminal run this command { dotnet build }_
