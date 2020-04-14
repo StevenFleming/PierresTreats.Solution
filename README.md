@@ -30,7 +30,7 @@ _Tracks inventory of treats and the treats respective flavors for a specific sho
 - A user should be able to navigate to a splash page that lists all instances of each class. Users should be able to click on an individual instance to see all the instances that belong to it.
 - All classes have all CRUD methods implemented
 - able to view both sides of the many-many relationship. For a particular instance of a class, you may view all of the instances of the other class that are related to it?
-- Users are able to register, log in and log out with Identity?
+- Users are able to register, log in and log out with Identity.
 - Create, Update and Delete functionality are limited to authenticated users
 
 ## Known Bugs
@@ -39,7 +39,9 @@ _No known bugs_
 
 ## Support and contact details
 
-_Email: 12flemings@gmail.com_ Contributions to the code are encouraged
+_Email: 12flemings@gmail.com_
+
+- Contributions to the code are encouraged
 
 ## Technologies Used
 
